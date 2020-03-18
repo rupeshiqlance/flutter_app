@@ -118,7 +118,6 @@ class _LoginActivityState extends State<LoginActivity>{
             Padding(
                padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
                    flex: 1,
