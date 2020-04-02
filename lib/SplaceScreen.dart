@@ -1,22 +1,37 @@
 
-import 'package:flutter_app/LoginActivity.dart';
+import 'package:flutter_app/loginform/LoginActivity.dart';
 import 'dart:async';
 import 'package:flutter_app/util/Util.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_app/home/Home.dart';
 
 class SplaceScreen extends StatefulWidget{
 
  @override
  _SplashState createState() => _SplashState();
 }
-class _SplashState extends State<SplaceScreen>{
+class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMixin{
+
+  var _visible = true;
+  AnimationController animationController;
+  Animation<double> animation;
   @override
   void initState(){
     super.initState();
+    animationController = new AnimationController(vsync: this, duration: new Duration(seconds: 2));
+    animation = CurvedAnimation(parent: animationController, curve: Curves.easeOut);
+    animation.addListener(() => this.setState(() {}));
+    animationController.forward();
+    setState(() {
+      _visible = !_visible;
+    });
    Timer(
       Duration(seconds: 5),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => LoginActivity(title: 'Flutter Login'))));
+            builder: (BuildContext context) =>
+
+                Home(title: 'Flutter Widget List'))));
   }
 
   Widget build(BuildContext context) {
@@ -44,7 +59,10 @@ class _SplashState extends State<SplaceScreen>{
 
                       ),
                     child: ClipOval(
-                          child: Image.asset('flutter_one.png',fit: BoxFit.cover),
+                          child: Image.asset('flutter_one.png',fit: BoxFit.cover,
+                            width: animation.value * 250,
+                            height: animation.value * 250,
+                          ),
                         )
                      ),
                     Center(
@@ -64,8 +82,5 @@ class _SplashState extends State<SplaceScreen>{
                 )
       ),
     );
-
   }
-
-
 }
