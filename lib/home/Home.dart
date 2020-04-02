@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/loginform/LoginActivity.dart';
+import 'package:flutter_app/widget/EmptyCard.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'ListItemModal.dart';
 
 // ignore: must_be_immutable
@@ -21,6 +23,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     items.add(ListItemModal("Login Form Normal"));
+    items.add(ListItemModal("Login Form One"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
@@ -39,7 +42,7 @@ class _HomeState extends State<Home> {
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
-    items.add(ListItemModal("Login Form Normal"));
+
   }
   @override
   Widget build(BuildContext context) {
@@ -49,32 +52,118 @@ class _HomeState extends State<Home> {
         ),
         body: _listView(context));
   }
-
   Widget _listView(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      scrollDirection: Axis.vertical,
-      itemBuilder: (context, index) {
-        return Card(
-          color: (index % 2 == 0) ? Colors.lightBlue : Colors.green,
-          child: ListTile(
-            leading: CircleAvatar(
-              backgroundImage: AssetImage('assets/flutter.png'),
-            ),
-            title: Text(items[index].item,
-            style: TextStyle(
-              color: Colors.white,
-            ),),
-            trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {
-                listClick(index);
-              },
-          ),
-        );
-      },
+    /*return AutoRefresh(
+        duration: const Duration(milliseconds: 2000),
+        child: Scaffold(
+            body: SafeArea(
+                child: AnimationLimiter(
+                  child: items.isEmpty ? Center(child: Text('No record founds')) :ListView.builder(
+                    itemCount: items.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return AnimationConfiguration.staggeredList(
+                        position: index,
+                        duration: const Duration(milliseconds: 375),
+                        child: SlideAnimation(
+                          verticalOffset: 50.0,
+                          child: FadeInAnimation(
+                              child: Card(
+                                color: (index % 2 == 0)
+                                    ? Colors.lightBlue
+                                    : Colors.green,
+                                child: ListTile(
+                                  leading: CircleAvatar(
+                                    backgroundImage: AssetImage(
+                                        'assets/flutter.png'),
+                                  ),
+                                  title: Text(items[index].item,
+                                    style: TextStyle(
+                                      color: Colors.white,),
+                                  ),
+                                  trailing: Icon(Icons.keyboard_arrow_right),
+                                  onTap: () {
+                                    listClick(index);
+                                  },
+                                ),
+                              )
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                 *//* child: ListView.builder(
+                    itemCount: items.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return AnimationConfiguration.staggeredList(
+                        position: index,
+                        duration: const Duration(milliseconds: 375),
+                        child: SlideAnimation(
+                          verticalOffset: 50.0,
+                          child: FadeInAnimation(
+
+                             child: Card(
+                                color: (index % 2 == 0)
+                                    ? Colors.lightBlue
+                                    : Colors.green,
+                                child: ListTile(
+                                  leading: CircleAvatar(
+                                    backgroundImage: AssetImage(
+                                        'assets/flutter.png'),
+                                  ),
+                                  title: Text(items[index].item,
+                                    style: TextStyle(
+                                      color: Colors.white,),
+                                  ),
+                                  trailing: Icon(Icons.keyboard_arrow_right),
+                                  onTap: () {
+                                    listClick(index);
+                                  },
+                                ),
+                              )
+                          ),
+                        ),
+                      );
+                    },
+                  ),*//*
+                )
+            )
+        ));*/
+    return AnimationLimiter(
+      child: items.isEmpty ? Center(child: EmptyCard()) :ListView.builder(
+        itemCount: items.length,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) {
+          return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 375),
+              child: SlideAnimation(
+                verticalOffset: 50.0,
+                child: FadeInAnimation(
+                    child: Card(
+                      color: (index % 2 == 0) ? Colors.lightBlue : Colors.green,
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage: AssetImage('assets/flutter.png'),
+                        ),
+                        title: Text(items[index].item,
+                          style: TextStyle(
+                            color: Colors.white,),
+                        ),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        onTap: () {
+                          listClick(index);
+                        },
+                      ),
+                    )
+                ),
+              ),
+          );
+        },
+      ),
     );
   }
-
   listClick(int index) {
     if(index == 0){
       Navigator.of(context).push(MaterialPageRoute(
