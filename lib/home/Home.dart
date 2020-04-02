@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/loginform/LoginActivity.dart';
-import 'package:flutter_app/loginform/LoginActivityOne.dart';
-import 'package:toast/toast.dart';
-
 import 'ListItemModal.dart';
 
 // ignore: must_be_immutable
@@ -83,22 +80,7 @@ class _HomeState extends State<Home> {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => LoginActivity(title: 'Login Form Normal')));
     }else if(index == 1){
-      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginActivityOne()));
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginActivity()));
     }
   }
-  /*Route _createRoute() {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => LoginActivity(title: 'Login Form Normal'),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.0, 1.0);
-        var end = Offset.infinite;
-        var tween = Tween(begin: begin, end: end);
-        var offsetAnimation = animation.drive(tween);
-        return SlideTransition(
-          position: offsetAnimation,
-          child: child,
-        );
-      },
-    );
-  }*/
 }
