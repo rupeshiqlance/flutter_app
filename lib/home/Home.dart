@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form One"));
     items.add(ListItemModal("Login Form Normal"));
@@ -145,7 +146,7 @@ class _HomeState extends State<Home> {
                       color: (index % 2 == 0) ? Colors.lightBlue : Colors.green,
                       child: ListTile(
                         leading: CircleAvatar(
-                          backgroundImage: AssetImage('assets/flutter.png'),
+                          backgroundImage: AssetImage('assets/flutter_one.png'),
                         ),
                         title: Text(items[index].item,
                           style: TextStyle(

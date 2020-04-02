@@ -15,7 +15,13 @@ class EmptyCard extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
+      child: Text(
+        'No record found',
+        style: TextStyle(
+          color: Colors.blue
+        ),
+      ),
+     /* margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.all(Radius.circular(4.0)),
@@ -26,7 +32,7 @@ class EmptyCard extends StatelessWidget {
             offset: const Offset(0.0, 4.0),
           ),
         ],
-      ),
+      ),*/
     );
   }
 }
