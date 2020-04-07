@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/loginform/LoginActivity.dart';
 import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_app/loginform/VerticleCustomeListItemRowActivity.dart';
 import 'ListItemModal.dart';
 
 // ignore: must_be_immutable
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
 
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form One"));
-    items.add(ListItemModal("Login Form Normal"));
+    items.add(ListItemModal("Custom Item Row"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
@@ -153,6 +154,9 @@ class _HomeState extends State<Home> {
                             color: Colors.white,),
                         ),
                         trailing: Icon(Icons.keyboard_arrow_right),
+                        subtitle: Text("Testing..",style: TextStyle(
+                          color: Colors.amberAccent
+                        ),),
                         onTap: () {
                           listClick(index);
                         },
@@ -171,6 +175,8 @@ class _HomeState extends State<Home> {
           builder: (BuildContext context) => LoginActivity(title: 'Login Form Normal')));
     }else if(index == 1){
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginActivity()));
+    }else if(index == 2){
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => VerticleCustomeListItemRowActivity()));
     }
   }
 }
