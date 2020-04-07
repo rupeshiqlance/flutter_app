@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/modal/CustomUIOneModal.dart';
 import 'package:flutter_app/modal/ListItemModal.dart';
+import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:toast/toast.dart';
 
@@ -52,7 +53,7 @@ class _CustomListView extends State<V_Listview> {
 
   Widget myCustomeWidget() {
     return Container(
-      child: ListView.builder(
+      child: items.isEmpty ? Center(child: EmptyCard()) :ListView.builder(
         shrinkWrap: false,
         itemCount: items.length,
         scrollDirection: Axis.vertical,
@@ -146,7 +147,7 @@ class _CustomListView extends State<V_Listview> {
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Align(
                                     child: Text(
-                                        items[index].Reviews+' reviews',
+                                        '('+items[index].Reviews+' reviews )',
                                       style: TextStyle(
                                           fontSize: 15,
                                           color: Color.fromARGB(500, 14, 34, 83),
@@ -208,7 +209,6 @@ class _CustomListView extends State<V_Listview> {
       ),
     );
   }
-
    void heartClick() {
      Toast.show("Heart Clicked", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
    }
