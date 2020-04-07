@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_app/modal/CustomUIOneModal.dart';
-import 'package:flutter_app/modal/ListItemModal.dart';
+import 'package:flutter_app/util/Util.dart';
 import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:toast/toast.dart';
@@ -87,8 +87,7 @@ class _CustomListView extends State<V_Listview> {
                               alignment: Alignment.topRight,
                               child: InkWell(
                                 onTap: () => heartClick(),
-                                child: Image.asset('assets/ic_like.png',
-                                    width: 20, height: 20),
+                                child: (index %2 ==0) ?Image.asset('assets/ic_like.png', width: 20, height: 20) :Image.asset('assets/ic_like_active.png', width: 20, height: 20)
                               ),
                             )
                         ),
