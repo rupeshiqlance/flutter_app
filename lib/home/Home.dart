@@ -3,7 +3,7 @@ import 'package:flutter_app/loginform/LoginActivity.dart';
 import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_app/loginform/VerticleCustomeListItemRowActivity.dart';
-import 'ListItemModal.dart';
+import '../modal/ListItemModal.dart';
 
 // ignore: must_be_immutable
 class Home extends StatefulWidget {

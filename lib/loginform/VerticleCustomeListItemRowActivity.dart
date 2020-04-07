@@ -3,8 +3,10 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_app/home/ListItemModal.dart';
+import 'package:flutter_app/modal/CustomUIOneModal.dart';
+import 'package:flutter_app/modal/ListItemModal.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:toast/toast.dart';
 
 class VerticleCustomeListItemRowActivity extends StatelessWidget {
   @override
@@ -23,27 +25,23 @@ class V_Listview extends StatefulWidget {
 }
 
 class _CustomListView extends State<V_Listview> {
-  var items = List<ListItemModal>();
+  var items = List<CustomUIOneModal>();
 
   @override
   void initState() {
     super.initState();
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-    items.add(ListItemModal("Test One"));
-    items.add(ListItemModal("Test Two"));
-  }
+    items.add(CustomUIOneModal("The Grand Bhagavati","Pep / Papad / Salad","745","10 - 15","0 - 15"));
+    items.add(CustomUIOneModal("The Grand Jivo","Shabji / Papad-salad / Salad","125","20 - 45","09 - 20"));
+    items.add(CustomUIOneModal("The Grand US Pizza","Chappati / Papad-milk / Salad","596","30 - 75","12 - 25"));
+    items.add(CustomUIOneModal("The Grand Dominoze","alukaddi / milk / Salad","01","40 - 15","19 - 15"));
+    items.add(CustomUIOneModal("The Grand Italian Pizza","Rice / Papad / Salad","789","45 - 43","43 - 45"));
+    items.add(CustomUIOneModal("The Grand Gopi","Plain raice / Papad / Salad","25","44 - 14","11 - 15"));
+    items.add(CustomUIOneModal("The Grand Jay Ambe","Noodals / Papad-milk / Salad","4567","64 - 11","13 - 35"));
+    items.add(CustomUIOneModal("The Grand Snackwalla","Rice Dal / Papad / rice","234","23 - 63","10 - 55"));
+    items.add(CustomUIOneModal("The Grand Bhagavati","Rice Dal / Papad / rice","568","11 - 45","12 - 15"));
+    items.add(CustomUIOneModal("The Grand Bhagyoday","Only Dal / Papad / Salad","111","10 - 44","16 - 45"));
 
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,9 +84,13 @@ class _CustomListView extends State<V_Listview> {
                             padding: const EdgeInsets.all(10.0),
                             child: Align(
                               alignment: Alignment.topRight,
-                              child: Image.asset('assets/ic_like.png',
-                                  width: 20, height: 20),
-                            )),
+                              child: InkWell(
+                                onTap: () => heartClick(),
+                                child: Image.asset('assets/ic_like.png',
+                                    width: 20, height: 20),
+                              ),
+                            )
+                        ),
                       ],
                     ),
                   ),
@@ -99,7 +101,7 @@ class _CustomListView extends State<V_Listview> {
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'The Keg Steakhouse + Bar Yourk Street',
+                            items[index].RestaurantName,
                             style: TextStyle(
                                 fontSize: 18,
                                 color: Color.fromARGB(500, 14, 34, 83),
@@ -111,7 +113,7 @@ class _CustomListView extends State<V_Listview> {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              'Pastas / Mozzarella / FasFood',
+                              items[index].MenuItem,
                               style: TextStyle(
                                   fontSize: 15,
                                   color: Color.fromARGB(60, 14, 34, 83),
@@ -119,9 +121,7 @@ class _CustomListView extends State<V_Listview> {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
+                       Padding(
                             padding: const EdgeInsets.only(top: 8,left: 3),
                             child: Row(
                               children: <Widget>[
@@ -146,7 +146,7 @@ class _CustomListView extends State<V_Listview> {
                                   padding: const EdgeInsets.only(left: 5),
                                   child: Align(
                                     child: Text(
-                                      '(762 reviews)',
+                                        items[index].Reviews+' reviews',
                                       style: TextStyle(
                                           fontSize: 15,
                                           color: Color.fromARGB(500, 14, 34, 83),
@@ -158,10 +158,7 @@ class _CustomListView extends State<V_Listview> {
                             ),
                           ),
 
-                        ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
+                         Padding(
                             padding: const EdgeInsets.only(top: 8,left: 3),
                             child: Row(
                               children: <Widget>[
@@ -172,7 +169,7 @@ class _CustomListView extends State<V_Listview> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 8),
                                     child: Text(
-                                      '10 - 15 min',
+                                      items[index].Minit+' min',
                                       style: TextStyle(
                                           fontSize: 15,
                                           color: Color.fromARGB(500, 14, 34, 83),
@@ -188,7 +185,7 @@ class _CustomListView extends State<V_Listview> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 8),
                                     child: Text(
-                                      '0 - 5 kim',
+                                      items[index].Kilomiter+' KM',
                                       style: TextStyle(
                                           fontSize: 15,
                                           color: Color.fromARGB(500, 14, 34, 83),
@@ -199,7 +196,7 @@ class _CustomListView extends State<V_Listview> {
                               ],
                             ),
                           ),
-                        )
+
                       ],
                     ),
                   )
@@ -211,4 +208,8 @@ class _CustomListView extends State<V_Listview> {
       ),
     );
   }
+
+   void heartClick() {
+     Toast.show("Heart Clicked", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+   }
 }
