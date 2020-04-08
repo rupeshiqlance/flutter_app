@@ -18,7 +18,9 @@ class EmptyCard extends StatelessWidget {
       child: Text(
         'No record found',
         style: TextStyle(
-          color: Colors.blue
+          color: Colors.blue,
+              fontSize: 20,
+          fontStyle: FontStyle.italic
         ),
       ),
      /* margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),

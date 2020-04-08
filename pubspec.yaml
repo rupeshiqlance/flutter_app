@@ -53,6 +53,13 @@ flutter:
     - ic_pin.png
     - ic_clock.png
     - ic_like.png
+    - ic_email.png
+    - ic_eye.png
+    - ic_facebook.png
+    - ic_google.png
+    - ic_mobile.png
+    - login_bg.png
+    - or.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
@@ -66,17 +73,23 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-   #fonts:
-    # - family: VisbyRoundCF
-     #   fonts:
-      #    - asset: fonts/VisbyRoundCF-Bold.ttf
-       #   - asset: fonts/VisbyRoundCF-DemiBold.ttf
-        #  - asset: fonts/VisbyRoundCF-ExtraBold.ttf
-         # - asset: fonts/VisbyRoundCF-ExtraLight.ttf
-          #- asset: fonts/VisbyRoundCF-Heavy.ttf
-          #- asset: fonts/VisbyRoundCF-Light.ttf
-          #- asset: fonts/VisbyRoundCF-Medium.ttf
-          #- asset: fonts/VisbyRoundCF-Regular.ttf
+  fonts:
+     - family: VisbyRoundCF
+       fonts:
+        - asset: fonts/VisbyRoundCF-Bold.otf
+          weight: 700
+        - asset: fonts/VisbyRoundCF-DemiBold.otf
+          weight: 200
+        - asset: fonts/VisbyRoundCF-Regular.otf
+          weight: 100
+        - asset: fonts/VisbyRoundCF-Medium.otf
+          weight: 300
+      #- asset: fonts/VisbyRoundCF-ExtraBold.otf
+      #- asset: fonts/VisbyRoundCF-ExtraLight.otf
+      #- asset: fonts/VisbyRoundCF-Heavy.otf
+      #- asset: fonts/VisbyRoundCF-Light.otf
+      #- asset: fonts/VisbyRoundCF-Medium.otf
+      #- asset: fonts/VisbyRoundCF-Regular.otf
 
   #
   # For details regarding fonts from package dependencies,

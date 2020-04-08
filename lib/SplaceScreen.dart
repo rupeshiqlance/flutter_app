@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_app/home/Home.dart';
 
+import 'loginform/LoginFoodHippoActivity.dart';
+
 class SplaceScreen extends StatefulWidget{
 
  @override
@@ -28,10 +30,13 @@ class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMi
     });
    Timer(
       Duration(seconds: 5),
-            () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            () => /*Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) =>
+                Home(title: 'Flutter Widget List'))));*/
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) =>
+                LoginFoodHippoActivity())));
 
-                Home(title: 'Flutter Widget List'))));
   }
 
   Widget build(BuildContext context) {
@@ -53,10 +58,8 @@ class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMi
                               color: Color.fromARGB(60, 0, 0, 0),
                               blurRadius: 5.0,
                               offset: Offset(5.0, 5.0)
-
                           )
                         ],
-
                       ),
                     child: ClipOval(
                           child: Image.asset('flutter_one.png',fit: BoxFit.cover,

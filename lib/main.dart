@@ -5,7 +5,6 @@ import 'package:flutter_app/SplaceScreen.dart';
 
 void main() =>
   runApp(MyApp());
-
 class MyApp extends StatelessWidget{
 
   @override
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget{
       DeviceOrientation.portraitDown,
     ]);
      return MaterialApp(
-       debugShowCheckedModeBanner: false,
+       debugShowCheckedModeBanner: true,
        title: 'Flutter Login UI',
        theme: ThemeData(
          primarySwatch: Colors.blue

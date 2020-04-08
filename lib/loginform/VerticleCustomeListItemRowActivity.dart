@@ -9,7 +9,7 @@ import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:toast/toast.dart';
 
-class VerticleCustomeListItemRowActivity extends StatelessWidget {
+class VerticleCustomeListItemRowActivity extends StatelessWidget with Util{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -59,7 +59,7 @@ class _CustomListView extends State<V_Listview> {
         scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           return SizedBox(
-            width: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
             child: Card(
               color: Colors.white,
               elevation: 0.75,
@@ -157,7 +157,6 @@ class _CustomListView extends State<V_Listview> {
                               ],
                             ),
                           ),
-
                          Padding(
                             padding: const EdgeInsets.only(top: 8,left: 3),
                             child: Row(
@@ -196,7 +195,6 @@ class _CustomListView extends State<V_Listview> {
                               ],
                             ),
                           ),
-
                       ],
                     ),
                   )

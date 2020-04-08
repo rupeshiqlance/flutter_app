@@ -10,13 +10,12 @@ class HomeActivity extends StatelessWidget{
   var mUtil = Util();
   final emailcontrollar = TextEditingController();
   final passwordcontrollar = TextEditingController();
-   String mstrEmail,strPassword;
+  String mstrEmail,strPassword;
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   HomeActivity({Key key, @required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("Hi ! "),
@@ -57,8 +56,6 @@ class HomeActivity extends StatelessWidget{
                                     )
                             )
                         ),
-                        
-
                         validator: (val){
                           if(val.length == 0){
                             return "Please Enter Email";
@@ -77,7 +74,6 @@ class HomeActivity extends StatelessWidget{
                       child: TextFormField(
                         controller: passwordcontrollar,
                         decoration: InputDecoration(
-
                             icon: Icon(Icons.vpn_key),
                             labelText: 'Enter Password',
                             fillColor: Colors.grey,
@@ -97,7 +93,7 @@ class HomeActivity extends StatelessWidget{
                             return null;
                           }
                         },
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.text,
                         style: TextStyle(
                           fontFamily: "Poppins",
                         ),
@@ -129,5 +125,4 @@ class HomeActivity extends StatelessWidget{
       )
     );
   }
-
 }
