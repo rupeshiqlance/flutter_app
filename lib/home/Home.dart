@@ -5,6 +5,7 @@ import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_app/loginform/VerticleCustomeListItemRowActivity.dart';
 import '../modal/ListItemModal.dart';
+import 'TabBarActivity.dart';
 
 // ignore: must_be_immutable
 class Home extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HomeState extends State<Home> {
     items.add(ListItemModal("Login Form One"));
     items.add(ListItemModal("Custom Item Row"));
     items.add(ListItemModal("Login Signup Food Hippo"));
-    items.add(ListItemModal("Login Form Normal"));
+    items.add(ListItemModal("Tab bar Normal"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
@@ -180,6 +181,8 @@ class _HomeState extends State<Home> {
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => VerticleCustomeListItemRowActivity()));
     }else if(index == 3){
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginFoodHippoActivity()));
+    }else if(index == 4){
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => TabBarActivity()));
     }
   }
 }
