@@ -1,9 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_app/signup/SignUpActivity.dart';
 import 'package:flutter_app/util/Util.dart';
 
 class LoginFoodHippoActivity extends StatelessWidget {
@@ -35,7 +35,6 @@ class _MyLogin extends State<_MyLoginForm> {
    /* emailcontrollar.dispose();
     passwordcontrollar.dispose();*/
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +43,6 @@ class _MyLogin extends State<_MyLoginForm> {
       body: _myLoginWidget(),
     );
   }
-
   Widget _myLoginWidget() {
     return Container(
       child: Stack(
@@ -79,7 +77,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetSingIn() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -100,7 +97,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetSingInSocilaTitle() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
@@ -120,7 +116,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetSingInSocilaButtonSizeBox() {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
@@ -210,7 +205,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetSingInConnectWithSizeBox() {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
@@ -228,7 +222,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetSingInLoginFiedSizeBox() {
     return Container(
       child: Form(
@@ -243,7 +236,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget mobileNumberWidget() {
     return TextFormField(
       keyboardType: TextInputType.number,
@@ -267,7 +259,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget mobilePasswordWidget() {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
@@ -302,7 +293,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetForgotPassword() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -322,7 +312,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     );
   }
-
   Widget _widgetSigninButton() {
     return Padding(
       padding: const EdgeInsets.only(top: 50),
@@ -359,7 +348,6 @@ class _MyLogin extends State<_MyLoginForm> {
 
     );
   }
-
   Widget _widgetSingInSignUpSizeBox() {
     return Container(
         child: Align(
@@ -380,7 +368,10 @@ class _MyLogin extends State<_MyLoginForm> {
           Padding(
             padding: const EdgeInsets.only(left: 8),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => SignUpActivity()));
+              },
               child: Text(
                 "Sign Up",
                 textAlign: TextAlign.center,
@@ -396,7 +387,6 @@ class _MyLogin extends State<_MyLoginForm> {
       ),
     ));
   }
-
   bool isValid() {
     if (emailcontrollar.text.isEmpty) {
       mUtil.ShowToast("Enter Mobile number", context);

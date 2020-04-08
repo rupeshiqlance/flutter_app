@@ -30,15 +30,10 @@ class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMi
     });
    Timer(
       Duration(seconds: 5),
-            () => /*Navigator.of(context).pushReplacement(MaterialPageRoute(
+            () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) =>
-                Home(title: 'Flutter Widget List'))));*/
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) =>
-                LoginFoodHippoActivity())));
-
+                Home(title: 'Flutter Widget List'))));
   }
-
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
