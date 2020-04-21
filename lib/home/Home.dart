@@ -1,20 +1,20 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/loginform/LoginActivity.dart';
 import 'package:flutter_app/loginform/LoginFoodHippoActivity.dart';
 import 'package:flutter_app/widget/EmptyCard.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_app/loginform/VerticleCustomeListItemRowActivity.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../modal/ListItemModal.dart';
 import 'TabBarActivity.dart';
-
 // ignore: must_be_immutable
 class Home extends StatefulWidget {
   String title;
-
+  var mPreference = SharedPreferences.getInstance();
   Home({Key key, this.title}) : super(key: key) {
     this.title = title;
   }
-
   @override
   _HomeState createState() => _HomeState();
 }
@@ -22,10 +22,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var items = List<ListItemModal>();
 
+  get mPreference => SharedPreferences.getInstance();
+
   @override
   void initState() {
     super.initState();
-
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form One"));
     items.add(ListItemModal("Custom Item Row"));
@@ -46,7 +47,6 @@ class _HomeState extends State<Home> {
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
     items.add(ListItemModal("Login Form Normal"));
-
   }
   @override
   Widget build(BuildContext context) {
@@ -172,9 +172,9 @@ class _HomeState extends State<Home> {
     );
   }
   listClick(int index) {
+
     if(index == 0){
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => LoginActivity(title: 'Login Form Normal')));
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginActivity(title: 'Login Form Normal')));
     }else if(index == 1){
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => LoginActivity()));
     }else if(index == 2){
@@ -184,5 +184,6 @@ class _HomeState extends State<Home> {
     }else if(index == 4){
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => TabBarActivity()));
     }
+
   }
 }

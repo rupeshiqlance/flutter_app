@@ -18,7 +18,7 @@ class LoginActivity extends StatefulWidget {
 class _LoginActivityState extends State<LoginActivity>{
   final emailcontrollar = TextEditingController();
   final passwordcontrollar = TextEditingController();
-  var mUtil = Util();
+  final mUtil = Util();
   final mModal = DataModal();
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   @override

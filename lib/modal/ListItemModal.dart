@@ -1,7 +1,7 @@
 
 class ListItemModal {
   String item;
-  ListItemModal(String s){
+   ListItemModal(String s){
     this.item = s;
   }
 }

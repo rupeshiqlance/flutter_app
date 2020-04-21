@@ -5,6 +5,7 @@ import 'package:flutter_app/util/Util.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_app/home/Home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'loginform/LoginFoodHippoActivity.dart';
 
@@ -21,6 +22,7 @@ class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMi
   @override
   void initState(){
     super.initState();
+
     animationController = new AnimationController(vsync: this, duration: new Duration(seconds: 2));
     animation = CurvedAnimation(parent: animationController, curve: Curves.easeOut);
     animation.addListener(() => this.setState(() {}));

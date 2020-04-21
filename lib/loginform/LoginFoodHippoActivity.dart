@@ -38,7 +38,6 @@ class _MyLogin extends State<_MyLoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
       body: _myLoginWidget(),
     );
@@ -243,8 +242,7 @@ class _MyLogin extends State<_MyLoginForm> {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(15.0, 10.0, 10.0, 10.0),
         border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(3.0),
-            borderSide: const BorderSide(color: Colors.red, width: 0.50)),
+            borderRadius: BorderRadius.circular(3.0)),
         hintStyle: TextStyle(color: Colors.grey),
         hintText: "Mobile Number",
         suffixIcon: Padding(
