@@ -1,40 +1,39 @@
 
-import 'package:flutter_app/loginform/LoginActivity.dart';
 import 'dart:async';
-import 'package:flutter_app/util/Util.dart';
+import 'dart:developer';
+import 'package:flutter_app/loginApi/LoginFoodHippoActivity.dart';
+import 'package:flutter_app/splash/contract/login_activity_contract.dart';
+import 'package:flutter_app/splash/apimodal/CommonResponse.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/splash/presenter/GetAPIKeyPresenter.dart';
+import 'package:flutter_app/util/Util.dart';
 
-import 'package:flutter_app/home/Home.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'loginform/LoginFoodHippoActivity.dart';
+import 'apimodal/KeydateResponse.dart';
 
 class SplaceScreen extends StatefulWidget{
 
  @override
  _SplashState createState() => _SplashState();
 }
-class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMixin{
+class _SplashState extends State<SplaceScreen> implements LoginActivityView{
 
   var _visible = true;
   AnimationController animationController;
   Animation<double> animation;
+  var mUtil = Util();
+  GetAPIKeyPresenter _screenPresenter;
+  String key ="335a559c51b88b4752b8325980abb3c14e1c4e61";
   @override
   void initState(){
     super.initState();
+    _screenPresenter = GetAPIKeyPresenter(this);
+    _screenPresenter.getAPIKeyDetail(key);
 
-    animationController = new AnimationController(vsync: this, duration: new Duration(seconds: 2));
-    animation = CurvedAnimation(parent: animationController, curve: Curves.easeOut);
-    animation.addListener(() => this.setState(() {}));
-    animationController.forward();
-    setState(() {
-      _visible = !_visible;
-    });
-   Timer(
+   /*Timer(
       Duration(seconds: 5),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) =>
-                Home(title: 'Flutter Widget List'))));
+                LoginFoodHippoActivity())));*/
   }
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -60,8 +59,8 @@ class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMi
                       ),
                     child: ClipOval(
                           child: Image.asset('flutter_one.png',fit: BoxFit.cover,
-                            width: animation.value * 250,
-                            height: animation.value * 250,
+                            width:  250,
+                            height: 250,
                           ),
                         )
                      ),
@@ -82,5 +81,28 @@ class _SplashState extends State<SplaceScreen>  with SingleTickerProviderStateMi
                 )
       ),
     );
+  }
+
+  @override
+  void finish() {
+    log("finish-->");
+    Timer(
+        Duration(seconds: 5),
+            () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) =>
+                LoginFoodHippoActivity())));
+  }
+  @override
+  void omMessage(String message) {
+    mUtil.ShowToast(message, context);
+  }
+  @override
+  void omResponseSuccess(KeydateResponse response) {
+    print("Key---->"+response.apiKey);
+  }
+
+  @override
+  void omResponseFail(String response) {
+    print("OnFails---->"+response);
   }
 }

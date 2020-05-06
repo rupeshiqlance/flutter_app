@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/modal/Contact.dart';
+import 'package:flutter_app/home/modal/Contact.dart';
 
 class TabBarActivity extends StatelessWidget{
   @override

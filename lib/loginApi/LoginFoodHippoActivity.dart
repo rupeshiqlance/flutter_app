@@ -32,6 +32,7 @@ class _MyLogin extends State<_MyLoginForm> {
   @override
   void initState() {
     super.initState();
+
    /* emailcontrollar.dispose();
     passwordcontrollar.dispose();*/
   }
